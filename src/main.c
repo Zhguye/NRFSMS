@@ -72,10 +72,10 @@ static void sms_callback(struct sms_data *const data, void *context)
  //char voltagedata[];
  //char temperaturedata[];
  char response_data[422];
- struct sms_data SMS1;
+ 
 
 
-		//These modem_info_string_get functions by Nordic already use AT commands; essentially same idea as the AT command function I made above this
+		
 void respond_with_modem_data() {
    
    

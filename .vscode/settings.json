@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "kernel.h": "c",
+        "stdio.h": "c",
+        "lte_lc.h": "c",
+        "string.h": "c",
+        "connect_example.h": "c",
+        "sms.h": "c",
+        "log.h": "c"
+    }
+}

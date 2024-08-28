@@ -16,7 +16,7 @@
 
 LOG_MODULE_REGISTER(sms_1, LOG_LEVEL_DBG);
 
-char payload343[256];
+char payload343[255];
 
 
 static void sms_callback(struct sms_data *const data, void *context)
@@ -40,6 +40,7 @@ static void sms_callback(struct sms_data *const data, void *context)
 			header->time.second);
 
 		printk("\tText:   '%s'\n", data->payload);
+		memset(payload343, 0, sizeof(payload343));
 		memcpy(payload343, data->payload, data->payload_len);
 		printk("\t payload343:%s", payload343);
 		printk("\tLength: %d\n", data->payload_len);
@@ -107,7 +108,11 @@ void respond_to_payload() {
 			if (ret) {
 				printk("Sending SMS failed with error: %d\n", ret);
 				}
-    } 	/*	Other Options, Unused		
+    } 
+			if(strcmp(payload343, "stop") == 0){
+				k_msleep(1000);
+			}
+				/*	Other Options, Unused		
 		else if (strcmp(payload343, "voltage") == 0) {
         	printf("Response: %s\n", voltagedata);
     } 	else if (strcmp(payload343, "temp") == 0) {
